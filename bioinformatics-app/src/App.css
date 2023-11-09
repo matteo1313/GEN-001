@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  background-color: #FFFFFF; /* light pink background */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  margin: 20px;
+}
+
+.squares-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between the squares */
+}
+
+.square {
+  width: 150px; /* width of squares */
+  height: 150px; /* height of squares */
+  border: 2px solid #ADD8E6; /* baby blue border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  color: #000;
+  background-color: #FFFFFF; /* white background for squares */
+  margin-bottom: 20px;
+}
+
+input[type="file"] {
+  padding: 10px;
+  background-color: #ADD8E6; /* baby blue */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ADD8E6; /* baby blue */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+}
+
+/* Add media query for responsive design */
+@media (max-width: 600px) {
+  .squares-container {
+    flex-direction: column;
+  }
+
+  .square {
+    width: 80%; /* adjust width for smaller screens */
+    margin: 10px auto;
+  }
+}
