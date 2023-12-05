@@ -31,11 +31,25 @@ process filtlong {
     """ 
 }
 
+process seqtk {
+    publishDir "${params.output_dir}/seqtk", mode: 'copy'
+
+    input:
+    file input_file from filtlong_out
+
+    output:
+    file "seqtk_output.fasta.gz" into seqtk_out
+
+    """
+    seqtk seq -a ${input_file} | gzip > seqtk_output.fasta.gz
+    """ 
+}
+
 process flye {
     publishDir "${params.output_dir}/flye", mode: 'copy'
 
     input:
-    file input_file from filtlong_out
+    file input_file from seqtk_out
 
     output:
     file "assembly/"
@@ -44,4 +58,3 @@ process flye {
     flye --nano-raw ${input_file} --meta --out-dir assembly
     """
 }
-
